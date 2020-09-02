@@ -14,6 +14,7 @@
 <?php
 // on met dans une variable un entier entre 0 et 10 inclus
 $hasard = mt_rand(0,10);
+echo 'Valeur de $hasard : '."<h3>$hasard</h3>";
 
 // on va vérifier si le chiffre au hasard est plus petit que 5
 if($hasard<5){
@@ -28,8 +29,6 @@ if($hasard<5){
 <h1>condition sinon: else</h1>
 <p>On verifie si 1 condition est remplie SINON (else) on effectue une autre action</p>
 <?php
-// on met dans une variable un entier entre 0 et 10 inclus
-$hasard = mt_rand(0,10);
 
 // on va vérifier si le chiffre au hasard est plus petit que 5
 if($hasard<5){
@@ -37,7 +36,8 @@ if($hasard<5){
     echo '$hasard vaut '.
         // entre "" la variable est interprétée
         "$hasard et est donc plus petit que 5";
-
+}else{
+    echo '$hasard vaut '."$hasard et est donc compris entre 5 et 10";
 }
 
 ?>

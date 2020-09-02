@@ -41,6 +41,35 @@ if($hasard<5){
 }
 
 ?>
+<p>On peut imbriquer les conditions if else, en général on évite d'avoir plus de 3 niveaux d'imbrication</p>
+<h5>
+<?php
+// si hasard est plus petit que 5
+if($hasard<5){
+
+    /*
+     * remplacer la condition if($hasard){ pour vérifier si hasard est impaire
+     */
+
+    // si hasard est impaire
+    if($hasard){
+        echo $hasard." est plus petit que 5 et est impaire";
+        // si hasard est paire
+    }else{
+        echo $hasard." est plus petit que 5 et est paire";
+    }
+// si hasard est plus grand ou égal à 5
+}else{
+    // si hasard est impaire
+    if($hasard){
+        echo $hasard." est plus grand ou égale à 5 et est impaire";
+        // si hasard est paire
+    }else{
+        echo $hasard." est plus grand ou égale à 5 et est paire";
+    }
+}
+?>
+</h5>
 </body>
 </html>
 

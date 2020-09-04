@@ -15,12 +15,12 @@
 <h4>Exemple d'utilisation du modulo pour l'affichage de données tabulaires</h4>
 <?php
 // création d'un tableau de données que l'on souhaite afficher ligne par ligne
-$donnees = ["Afghanistan","Afrique du Sud","Albanie","Allemagne","Bahreïn","Bangladesh"];
+$donnees = ["Afghanistan","Afrique du Sud","Albanie","Allemagne","Bahreïn","Bangladesh","Belgique","France","USA"];
 // on va utiliser le for et non le foreach, on a donc besoin du nombre d'entrée:
 $nb = count($donnees);
 ?>
 
-<p>
+<div>
     <table align="left">
     <tr><td>Pays</td></tr>
     <?php
@@ -33,8 +33,8 @@ $nb = count($donnees);
     }
     ?>
 </table>
-</p>
-<p>
+</div>
+<div>
 <br>
 <hr>
 <?php
@@ -45,6 +45,6 @@ echo $b." | ".$c;
 echo "<br>".($a/3);
 ?>
 <hr>
-</p>
+</div>
 </body>
 </html>

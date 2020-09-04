@@ -54,7 +54,13 @@ $nb = count($donnees);
         <table align="left">
             <tr><td>Pays</td></tr>
             <?php
-
+            // tant qu'on a des éléments dans le tableau
+            for($i=0;$i<$nb;$i++){
+                // utilisation d'une ternaire pour changer la couleur en cas de ligne paire ou impaire
+                $couleur = ($i%3)?"#FFF":"#FFFF00";
+                // affichage de la ligne avec la couleur
+                echo "<tr><td style='background-color: $couleur'>$donnees[$i]</td></tr>";
+            }
             ?>
         </table>
     </div>

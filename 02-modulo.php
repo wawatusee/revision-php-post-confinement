@@ -64,6 +64,24 @@ $nb = count($donnees);
             ?>
         </table>
     </div>
+    <hr>
+    <br><h3>Exercice 2</h3>
+    <p>En utilisant le tableau $donnees et $nb, affichez 1 ligne en bleu, 1 ligne en blanc et 1 ligne en rouge  Uttilisez le for comme l'exemple ci-dessus, par contre l'utilisation du modulo n'est pas obligatoire (plus compliqué)</p>
+    <br>
+    <div>
+        <table align="left">
+            <tr><td>Pays</td></tr>
+            <?php
+            // tant qu'on a des éléments dans le tableau
+            for($i=0;$i<$nb;$i++){
+                // utilisation d'une ternaire pour changer la couleur en cas de ligne paire ou impaire
+                $couleur = ($i%3)?"#FFF":"#FFFF00";
+                // affichage de la ligne avec la couleur
+                echo "<tr><td style='background-color: $couleur'>$donnees[$i]</td></tr>";
+            }
+            ?>
+        </table>
+    </div>
 </div>
 </body>
 </html>

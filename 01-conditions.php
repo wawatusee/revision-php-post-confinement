@@ -41,6 +41,12 @@ if($hasard<5){
 }
 
 ?>
+<h2>Condition ternaire: peut faire ce que fait un if / else en une ligne seulement</h2>
+<?php
+// faites une ternaire sur hasard avec les résultats de l'exemple précédent mise dans une variable, la condition est que $hasard est ou plus petit que 5 ou plus grand ou égal à 5
+$ternaire="créez votre ternaire ici";
+echo $ternaire;
+?>
 <p>On peut imbriquer les conditions if else, en général on évite d'avoir plus de 3 niveaux d'imbrication</p>
 <h5>
 <?php

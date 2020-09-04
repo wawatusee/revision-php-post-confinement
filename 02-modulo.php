@@ -35,16 +35,29 @@ $nb = count($donnees);
 </table>
 </div>
 <div>
-<br>
+    <h3>Fonctionnement du modulo</h3>
+    <p>Le modulo va nous donner le reste d'une division euclidienne <a href="https://fr.wikipedia.org/wiki/Modulo_(op%C3%A9ration)" target="_blank">wikipédia</a>, et donc pas nécessairement 1 ou 0 ! </p>
+    <code>
+        1) 4%2 => 0 car 4/2 = 2 => pas de reste de division<br>
+        2) 5%2 => 1 car 5/2 = 2.5 => on a un reste (des chiffres après la virgule) parceque 2X2 = 4 pour arriver à 5 on doit ajouter 1<br>
+        3) 8%3 => 2 car 8/3 = 2.66666666667 => le reste de 3x2 = 6 il faut ajouter 2 pour arriver à 8
+        4) 25%10 => 5 car 25/10 = 2.5 => mais le reste c'est le nombre de x que l'on peut mettre 10 dans 25 (2x) => 2x10 => 20, on doit ajouter 5 pour arriver à 25<br>
+        5) 300%7 => 6 car 300/7 = 42.8571428571 => on peut mettre 42x 7 dans 300 => 294, pour arriver à 300 => 294+6=300
+
+
+    </code>
 <hr>
-<?php
-$a = 8;
-$b = $a%2; // on divise par 8 et on regarde si il y a quelque chose après la virgule
-$c = $a%3; // on divise 8 par 3 et on regarde combien on a d'éléments dans le cas de 8 / 3, on peut 2x 3 dedans = 6, il faut rajouter 2 pour arriver à 8
-echo $b." | ".$c;
-echo "<br>".($a/3);
-?>
-<hr>
+    <br><h3>Exercice</h3>
+    <p>En utilisant le tableau $donnees et $nb, affichez grâce au modulo 1 ligne sur 3 en jaune, 2 lignes sur 3 en blanc (1 jaune, 2 blancs, etc....) Uttilisez le for comme l'exemple ci-dessus</p>
+    <br>
+    <div>
+        <table align="left">
+            <tr><td>Pays</td></tr>
+            <?php
+
+            ?>
+        </table>
+    </div>
 </div>
 </body>
 </html>

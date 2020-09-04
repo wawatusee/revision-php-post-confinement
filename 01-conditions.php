@@ -74,13 +74,37 @@ if($hasard<5){
 }
 ?>
 </h5>
+<h1>condition sinon si: elseif ou else if</h1>
+<p>On verifie si 1 condition est remplie SINON SI (elseif) on vérifie une autre condition, SINON on effectue une action par défaut</p>
+<?php
+
+// SI on va vérifier si le chiffre au hasard est plus petit que 5 et qu'il est impaire
+if($hasard<5 && $hasard%2){
+    echo '$hasard vaut '."$hasard et est donc plus petit que 5 et est impaire";
+
+// SINON SI hasard est plus petit que 5 et qu'il est paire !() => inverse d'impaire
+}else if($hasard<5 && !($hasard%2) ){
+    echo '$hasard vaut '."$hasard et est donc plus petit que 5 et est paire";
+
+// SINON SI on va vérifier si le chiffre au hasard est plus grand ou égal à 5 et qu'il est impaire
+}elseif($hasard>=5 && $hasard%2){
+
+    echo '$hasard vaut '. "$hasard et est donc plus grand ou égal à 5 et est impaire";
+// SINON tout les cas de figures possibles on été listés précédemment, le else peut donc nous afficher la dernière option possible
+}else{
+    echo '$hasard vaut '. "$hasard et est donc plus grand ou égal à 5 et est paire";
+}
+
+?>
+
+
 <h3>Explication sur le modulo</h3>
 <p>le modulo d'un chiffre nous donne le nombre d'éléments derrière la virgule après la division de celui-ci</p>
 <hr>
 <?php
 $a = 8;
-$b = $a%2; // on divise par 2 et on regarde si il y a quelque chose après la virgule
-$c = $a%3; // on divise 2 par 3 et on regarde combien on a d'éléments dans le cas de 8 / 3, on peut 2x 3 dedans = 6, il faut rajouter 2 pour arriver à 8
+$b = $a%2; // on divise par 8 et on regarde si il y a quelque chose après la virgule
+$c = $a%3; // on divise 8 par 3 et on regarde combien on a d'éléments dans le cas de 8 / 3, on peut 2x 3 dedans = 6, il faut rajouter 2 pour arriver à 8
 echo $b." | ".$c;
 echo "<br>".($a/3);
 ?>

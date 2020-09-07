@@ -16,7 +16,8 @@
 <h4>Exemple d'utilisation du modulo pour l'affichage de données tabulaires</h4>
 <?php
 // création d'un tableau de données que l'on souhaite afficher ligne par ligne
-$donnees = ["Afghanistan","Afrique du Sud","Albanie","Allemagne","Bahreïn","Bangladesh","Belgique","France","Italie","Liban","Libye","Lituanie","Luxembourg","USA","Tanzanie","Togo"];
+$donnees = ["Afghanistan","Afrique du Sud","Albanie","Allemagne","Bahreïn","Bangladesh","Belgique","France","Italie","USA","Tanzanie","japon","Canada","Amérique","Ouganda","Palaos","Bulgarie","Qatar","Ukraine","Laos","Kiribati","Grèce","Gabon","Panamá",];
+
 // on va utiliser le for et non le foreach, on a donc besoin du nombre d'entrée:
 $nb = count($donnees);
 ?>
@@ -97,16 +98,16 @@ $nb = count($donnees);
         <tr><td>Pays</td></tr>
         <?php
         // codes couleurs souhaités dans l'order
-        $color = ["#FFFFFF","#0363FD","#FF000","pink"];
+        $color = ["#FFFFFF","#0363FD","#FF0000","pink","yellow"];
         // nombre de couleur (va être utile au modulo)
         $nbcolor = count($color);
         // tant qu'on a des éléments dans le tableau
         for($i=0;$i<$nb;$i++){
-            // sur cette ligne on peut rendre l'attribution des couleurs fonctionnelle
-            $couleur = "";
+            // sur cette ligne on peut rendre l'attribution des couleurs fonctionnelle en utilisant le tableau $color et en y mettant la valeur de $i modulo le nombre de couleurs $nbcolor
+            $couleur = $color[$i%$nbcolor];
 
             // affichage de la ligne avec la couleur
-            echo "<tr><td style='background-color: $couleur'>$donnees[$i]</td></tr>";
+            echo "<tr><td style='background-color: $couleur'>$donnees[$i] | index du tableau donnees i vaut $i | modulo pour obtenir la clef de color => ($i%$nbcolor) ".$i%$nbcolor."</td></tr>";
         }
         ?>
     </table>

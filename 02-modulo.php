@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Explication sur le modulo</title>
+    <style>div{display: flex}</style>
 </head>
 <body>
 <h1>%</h1>
@@ -15,7 +16,7 @@
 <h4>Exemple d'utilisation du modulo pour l'affichage de données tabulaires</h4>
 <?php
 // création d'un tableau de données que l'on souhaite afficher ligne par ligne
-$donnees = ["Afghanistan","Afrique du Sud","Albanie","Allemagne","Bahreïn","Bangladesh","Belgique","France","USA"];
+$donnees = ["Afghanistan","Afrique du Sud","Albanie","Allemagne","Bahreïn","Bangladesh","Belgique","France","Italie","USA","Tanzanie","Togo"];
 // on va utiliser le for et non le foreach, on a donc besoin du nombre d'entrée:
 $nb = count($donnees);
 ?>
@@ -45,11 +46,12 @@ $nb = count($donnees);
         5) 300%7 => 6 car 300/7 = 42.8571428571 => on peut mettre 42x 7 dans 300 => 294, pour arriver à 300 => 294+6=300
 
 
-    </code>
+    </code></div><div>
 <hr>
     <br><h3>Exercice</h3>
     <p>En utilisant le tableau $donnees et $nb, affichez grâce au modulo 1 ligne sur 3 en jaune, 2 lignes sur 3 en blanc (1 jaune, 2 blancs, etc....) Uttilisez le for comme l'exemple ci-dessus</p>
     <br>
+</div>
     <div>
         <table align="left">
             <tr><td>Pays</td></tr>
@@ -64,9 +66,10 @@ $nb = count($donnees);
             ?>
         </table>
     </div>
+
     <hr>
     <br><h3>Exercice 2</h3>
-    <p>En utilisant le tableau $donnees et $nb, affichez 1 ligne en bleu, 1 ligne en blanc et 1 ligne en rouge  Uttilisez le for comme l'exemple ci-dessus, par contre l'utilisation du modulo n'est pas obligatoire (plus compliqué)</p>
+    <p>En utilisant le tableau $donnees et $nb, affichez 1 ligne en bleu, 1 ligne en blanc et 1 ligne en rouge,  Uttilisez le for comme l'exemple ci-dessus, par contre l'utilisation du modulo n'est pas obligatoire (plus compliqué)</p>
     <br>
     <div>
         <table align="left">
@@ -74,14 +77,37 @@ $nb = count($donnees);
             <?php
             // tant qu'on a des éléments dans le tableau
             for($i=0;$i<$nb;$i++){
-                // utilisation d'une ternaire pour changer la couleur en cas de ligne paire ou impaire
-                $couleur = ($i%3)?"#FFF":"#FFFF00";
+                // pour faire une ternaire dans une ternaire, il faut utiliser les () pour isoler la ternaire d'une autre. pour obtenir la première couleur j'ai fait un modulo 3 inversé, suivi d'un modulo 3 de la valeur augmentée de 1
+                $couleur = !($i%3)?"#0363FD":((($i+1)%3)?"#FFF":"#FF0000");
+                // merci Karim pour cette solution alternative, il utilise un modulo 2 puis un modulo 4 pour faire la même
+                $couleur = ($i%2)?" #FFFFFF":(($i%4) ?"#FF0000":"#0363FD");
+
                 // affichage de la ligne avec la couleur
                 echo "<tr><td style='background-color: $couleur'>$donnees[$i]</td></tr>";
             }
             ?>
         </table>
     </div>
+<hr>
+<br><h3>Exercice 3</h3>
+<p>En utilisant le tableau $donnees et $nb, affichons autant de couleurs que souhaitées en partant du tableau ci-dessous et en utilisant le modulo (si possible)</p>
+<br>
+<div>
+    <table align="left">
+        <tr><td>Pays</td></tr>
+        <?php
+        $color = ["#FFFFFF","#0363FD","#FF000","pink"];
+        $nbcolor = count($color);
+        // tant qu'on a des éléments dans le tableau
+        for($i=0;$i<$nb;$i++){
+            $couleur = "";
+
+            // affichage de la ligne avec la couleur
+            echo "<tr><td style='background-color: $couleur'>$donnees[$i]</td></tr>";
+        }
+        ?>
+    </table>
+</div>
 </div>
 </body>
 </html>

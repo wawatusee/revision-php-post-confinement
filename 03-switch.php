@@ -17,8 +17,8 @@ if(isset($_GET['page'])){
 		case 'plan':
 			$content = '<h3>plan</h3>';
 			break;
-		case 'plan':
-			$content = '<h3>plan</h3>';
+		case 'info':
+			$content = '<h3>info</h3>';
 			break;
 		default:
 			$content = '<h3>Erreur 404</h3>';

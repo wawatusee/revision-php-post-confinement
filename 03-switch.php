@@ -1,6 +1,29 @@
 <?php
 if(isset($_GET['page'])){
-    // avec un switch, changez la variable content suivant le lien cliqué, si le la valeur de la variable get "page" est différente de celles des liens, affichage du texte: Erreur 404
+    // avec un switch, changez la variable $content suivant le lien cliqué, si la valeur de la variable get "page" est différente de celles des liens, affichage du texte: Erreur 404
+	
+	$p = $_GET['page'];
+
+	switch ($p) {
+		case 'contactez-nous':
+			$content = '<h3>contactez-nous</h3>';
+			break;
+		case 'galerie':
+			$content = '<h3>galerie</h3>';
+			break;
+		case 'photos':
+			$content = '<h3>photos</h3>';
+			break;
+		case 'plan':
+			$content = '<h3>plan</h3>';
+			break;
+		case 'plan':
+			$content = '<h3>plan</h3>';
+			break;
+		default:
+			$content = '<h3>Erreur 404</h3>';
+	}
+	
 }else{
     $content = "<h3>Ceci est la page d'accueil</h3>";
 }

@@ -16,7 +16,7 @@
 <h4>Exemple d'utilisation du modulo pour l'affichage de données tabulaires</h4>
 <?php
 // création d'un tableau de données que l'on souhaite afficher ligne par ligne
-$donnees = ["Afghanistan","Afrique du Sud","Albanie","Allemagne","Bahreïn","Bangladesh","Belgique","France","Italie","USA","Tanzanie","Togo"];
+$donnees = ["Afghanistan","Afrique du Sud","Albanie","Allemagne","Bahreïn","Bangladesh","Belgique","France","Italie","Liban","Libye","Lituanie","Luxembourg","USA","Tanzanie","Togo"];
 // on va utiliser le for et non le foreach, on a donc besoin du nombre d'entrée:
 $nb = count($donnees);
 ?>
@@ -96,10 +96,13 @@ $nb = count($donnees);
     <table align="left">
         <tr><td>Pays</td></tr>
         <?php
+        // codes couleurs souhaités dans l'order
         $color = ["#FFFFFF","#0363FD","#FF000","pink"];
+        // nombre de couleur (va être utile au modulo)
         $nbcolor = count($color);
         // tant qu'on a des éléments dans le tableau
         for($i=0;$i<$nb;$i++){
+            // sur cette ligne on peut rendre l'attribution des couleurs fonctionnelle
             $couleur = "";
 
             // affichage de la ligne avec la couleur

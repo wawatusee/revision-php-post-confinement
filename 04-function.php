@@ -10,3 +10,20 @@ function premiere(){
 echo "<hr>";
 echo premiere();
 echo "<hr>";
+
+// fonction avec un paramètre obligatoire, ici on souhaite un paramètre qui est un temps unix depuis le 1er janvier 1970 (en secondes)
+function datesince($arg){
+    return date("Y-m-d H:i:s",$arg);
+}
+echo "<hr>";
+// ici on met le temps actuel du serveur avec time() en seconde
+echo datesince(time());
+echo "<hr>";
+// exe logique 1
+
+// ici le temps il y a une heure
+echo datesince(time());
+echo "<hr>";
+// ici le temps il y a un semaine
+echo datesince(time());
+echo "<hr>";

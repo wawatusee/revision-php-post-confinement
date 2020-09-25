@@ -22,8 +22,8 @@ echo "<hr>";
 // exe logique 1
 
 // ici le temps il y a une heure
-echo datesince(time());
+echo datesince(time()-(60*60));
 echo "<hr>";
 // ici le temps il y a un semaine
-echo datesince(time());
+echo datesince(time()-(60*60*24*7));
 echo "<hr>";

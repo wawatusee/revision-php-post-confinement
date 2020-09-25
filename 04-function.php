@@ -34,3 +34,15 @@ echo "<hr>";
 echo datesince(strtotime("+1 day 10 minutes"));
 echo "<hr>";
 
+// ici un paramètre est obligatoire, le deuxième ne l'est pas
+function tempsFormat($format,$timestamp=1601027436){
+    return date($format,$timestamp);
+}
+
+echo "<hr>";
+echo tempsFormat("H-m-d H:i:s");
+echo "<hr>";
+echo tempsFormat("Y-m-d H:i:s");
+echo "<hr>";
+echo tempsFormat("Y-m-d H:i:s",time());
+echo "<hr>";

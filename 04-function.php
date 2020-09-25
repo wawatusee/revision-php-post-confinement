@@ -27,3 +27,10 @@ echo "<hr>";
 // ici le temps il y a un semaine
 echo datesince(time()-(60*60*24*7));
 echo "<hr>";
+// ici le temps dans un an, utilisation de strtotime qui essaie de transformer le temps avec les formats en Anglais
+echo datesince(strtotime("+1 year"));
+echo "<hr>";
+// ici le temps dans 1 jour et 10 minutes
+echo datesince(strtotime("+1 day 10 minutes"));
+echo "<hr>";
+

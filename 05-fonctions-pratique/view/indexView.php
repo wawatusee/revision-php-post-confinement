@@ -44,11 +44,10 @@
                 <p class="lead">Nombre d'articles: <?=count($recupAll)?></p>
                 <?php
                 foreach($recupAll as $item):
-                    var_dump($item);
                 ?>
                 <h3><?=$item["titre"]?></h3>
-                <p></p>
-                <h5></h5>
+                <p><?=$item["texte"]?></p>
+                <h5>Par <?=$item["thename"]?> le <?=$item["thedate"]?></h5>
                 <hr>
                 <?php
                 endforeach;

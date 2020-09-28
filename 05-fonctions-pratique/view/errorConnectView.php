@@ -32,7 +32,8 @@
         <div class="row">
             <div class="col-lg-8 col-md-7 col-sm-6">
                 <h1>Erreur lors de la connexion</h1>
-                <p class="lead">contenu</p>
+                <p class="lead">Erreur: <?=mysqli_connect_error()?></p>
+                <p class="lead">Numéro d'erreur: <?=mysqli_connect_errno()?></p>
             </div>
 
         </div>

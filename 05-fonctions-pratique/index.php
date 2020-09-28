@@ -7,6 +7,12 @@ require_once "model/connectDB.php";
 
 // DB connection
 $db = connectDB();
+// connect error
+if(!$db){
+    // view  connect error
+    include "view/errorConnectView.php";
+    die();
+}
 
 // loading du contrôleur public
 require_once "controller/publicController.php";

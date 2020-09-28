@@ -9,7 +9,7 @@ ORDER BY a.thedate DESC;";
     // si au moins 1 résultat
     if(mysqli_num_rows($recup)){
         // on utilise le fetch all car il peut y avoir plus d'un résultat
-        return mysqli_fetch_all($recup);
+        return mysqli_fetch_all($recup,MYSQLI_ASSOC);
     }
     // no result
     return false;

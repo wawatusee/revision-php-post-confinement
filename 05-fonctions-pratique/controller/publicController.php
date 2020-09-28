@@ -7,3 +7,6 @@ $recupAll = articlesLoadAll($db);
 if(!$recupAll){
     $erreur = "Pas encore d'article";
 }
+
+// view
+require_once "view/indexView.php";

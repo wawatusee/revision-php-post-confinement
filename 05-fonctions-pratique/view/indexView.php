@@ -38,10 +38,24 @@
                 <h1><?=$erreur?></h1>
 
                 <?php
+                else:
+                ?>
+                <h1>Tous nos articles</h1>
+                <p class="lead">Nombre d'articles: <?=count($recupAll)?></p>
+                <?php
+                foreach($recupAll as $item):
+                    var_dump($item);
+                ?>
+                <h3><?=$item["titre"]?></h3>
+                <p></p>
+                <h5></h5>
+                <hr>
+                <?php
+                endforeach;
+                    ?>
+                <?php
                 endif;
                 ?>
-                <p class="lead">Erreur: <?=mysqli_connect_error()?></p>
-                <p class="lead">Numéro d'erreur: <?=mysqli_connect_errno()?></p>
             </div>
 
         </div>

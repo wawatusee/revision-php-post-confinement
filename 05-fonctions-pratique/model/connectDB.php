@@ -9,4 +9,6 @@ function connectDB(){
     }
     // change charset
     mysqli_set_charset($connect,DB_CHARSET);
+
+    return $connect;
 }

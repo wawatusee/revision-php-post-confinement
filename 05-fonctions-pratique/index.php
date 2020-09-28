@@ -11,8 +11,11 @@ $db = connectDB();
 if(!$db){
     // view  connect error
     include "view/errorConnectView.php";
+    // stop working
     die();
 }
+
+// var_dump($db);
 
 // loading du contrôleur public
 require_once "controller/publicController.php";

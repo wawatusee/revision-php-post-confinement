@@ -7,6 +7,7 @@ require_once "model/connectDB.php";
 
 // DB connection
 $db = connectDB();
+
 // connect error
 if(!$db){
     // view  connect error

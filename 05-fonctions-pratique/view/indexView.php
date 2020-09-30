@@ -47,7 +47,7 @@
                 ?>
                 <h3><?=$item["titre"]?></h3>
                 <p><?=$item["texte"]?></p>
-                <h5>Par <?=$item["thename"]?> le <?=$item["thedate"]?></h5>
+                <h5>Par <?=$item["thename"]?> <?=functionDateModel($item["thedate"])?></h5>
                 <hr>
                 <?php
                 endforeach;

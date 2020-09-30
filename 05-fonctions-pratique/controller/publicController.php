@@ -1,6 +1,7 @@
 <?php
 // Dependencies
 require_once "model/articlesModel.php";
+require_once "model/functionDateModel.php";
 
 $recupAll = articlesLoadAll($db);
 // pas d'articles

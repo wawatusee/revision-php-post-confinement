@@ -46,7 +46,7 @@
                 foreach($recupAll as $item):
                 ?>
                 <h3><?=$item["titre"]?></h3>
-                <p><?=cutTheTextModel($item["texte"])?></p>
+                <p><?=cutTheTextModel($item["texte"])?> ... Lire la suite</p>
                 <h5>Par <?=$item["thename"]?> <?=functionDateModel($item["thedate"])?></h5>
                 <hr>
                 <?php

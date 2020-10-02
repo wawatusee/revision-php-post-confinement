@@ -2,6 +2,7 @@
 // Dependencies
 require_once "model/articlesModel.php";
 require_once "model/functionDateModel.php";
+require_once "model/cutTheTextModel.php";
 
 $recupAll = articlesLoadAllResume($db);
 // pas d'articles

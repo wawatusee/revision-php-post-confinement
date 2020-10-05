@@ -66,6 +66,21 @@ function paginationModel($nb_tot_item,$current_page,$nb_per_page=10,$URL_VAR="",
         $sortie .= ($i==$current_page)
             ? "$i "
             : "<a href='?$URL_VAR&$name_get_pagination=$i'>$i</a> ";
+
+        // si on est sur la dernière page
+        if($nb_pages==$i){
+            // si la page actuelle est la dernière page
+            if($current_page==$i){
+                $sortie.=" > >> ";
+            }else{
+                // page suivante
+                $sortie.="<a href='?$URL_VAR&$name_get_pagination=".($current_page+1)."'>></a> ";
+                // dernière page
+                $sortie.="<a href='?$URL_VAR&$name_get_pagination=$i'>>></a> ";
+            }
+        }
+
+
     }
     return $sortie;
 }

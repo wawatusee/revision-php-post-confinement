@@ -41,9 +41,10 @@
                 else:
                 ?>
                 <h1>Tous nos articles</h1>
-                <p class="lead">Nombre d'articles: <?=count($recupAll)?></p>
+                <p class="lead">Nombre d'articles: <?=$nbTotalArticles?></p>
                 <?php
-                foreach($recupAll as $item):
+                echo $pagination = paginationModel($nbTotalArticles,$pgactu,NUMBER_ARTICLE_PER_PAGE);
+                foreach($recupPagination as $item):
                 ?>
                 <h3><?=$item["titre"]?></h3>
                 <p><?=cutTheTextModel($item["texte"])?> ... Lire la suite</p>
@@ -54,6 +55,9 @@
                     ?>
                 <?php
                 endif;
+
+                echo $pagination;
+
                 ?>
             </div>
 

@@ -11,7 +11,7 @@ $countries = array("Afghanistan", "Albania", "Algeria", "American Samoa", "Andor
 // nombre de pays
 echo $nb_item = count($countries);
 
-// existence de la variable get "pg"
+// existence de la variable get "pg" - Nous ne vérifions pas les paginations avec une autre variable GET ("page")
 if(isset($_GET['pg'])){
     $pgactu = (int) $_GET['pg'];
 }else{
@@ -49,6 +49,19 @@ function paginationModel($nb_tot_item,$current_page,$nb_per_page=10,$URL_VAR="",
     $sortie.= "Page ";
 
     for($i=1;$i<=$nb_pages;$i++){
+        // si on est sur la première page
+        if($i==1){
+            // si la première page est la page actuelle
+            if($i==$current_page){
+                $sortie .= "<< < ";
+            // la première page n'est pas la page actuelle
+            }else{
+                // retour à la première ligne
+                $sortie .= "<a href='?$URL_VAR&$name_get_pagination=$i'><<</a> ";
+                // une page en arrière
+                $sortie .= "<a href='?$URL_VAR&$name_get_pagination=".($current_page-1)."'><</a> ";
+            }
+        }
         // si on est sur la page actuelle, pas besoin de lien, sinon on en met un
         $sortie .= ($i==$current_page)
             ? "$i "

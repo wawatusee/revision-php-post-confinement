@@ -25,8 +25,10 @@ if(isset($_GET['pg'])){
 <p>
     <?php
     $debut_tab = ($pgactu-1)*10; // page 1 =>0, 2 =>10, 3 =>20
-    $fin_tab = 10; // page 1 =>0, 2 =>10, 3 =>20
-    for($i=$debut_tab;$i<($debut_tab+$fin_tab) ||  ;$i++){
+    $fin_tab = 10; // 10
+    for($i=$debut_tab;$i<($debut_tab+$fin_tab);$i++){
+        // si $i est plus grand ou égal au nombre de pays dans le tableau, on arrête la boucle
+        if($i>=$nb_item) break;
         echo $countries[$i]." | ";
     }
     ?>
@@ -36,8 +38,41 @@ echo paginationModel($nb_item,$pgactu);
 echo "<hr>";
 echo paginationModel($nb_item,1,10,"","page");
 echo "<hr>";
+?>
+    <h3>Pays dans le tableau: <?=$nb_item?></h3> <hr>
+    <p>Exemple avec valeurs du fichier config.php (5 items par page)</p>
+    <code>echo paginationModel($nb_item,$pgactu,NUMBER_ARTICLE_PER_PAGE,"section=jouets");</code><hr>
+    <p>
+        <?php
+        $debut_tab = ($pgactu-1)*NUMBER_ARTICLE_PER_PAGE; // page 1 =>0, 2 =>5, 3 =>10
+        $fin_tab = NUMBER_ARTICLE_PER_PAGE;// 5
+        for($i=$debut_tab;$i<($debut_tab+$fin_tab);$i++){
+            // si $i est plus grand ou égal au nombre de pays dans le tableau, on arrête la boucle
+            if($i>=$nb_item) break;
+            echo $countries[$i]." | ";
+        }
+        ?>
+    </p>
+<?php
 echo paginationModel($nb_item,$pgactu,NUMBER_ARTICLE_PER_PAGE,"section=jouets");
 echo "<hr>";
+
+?>
+    <h3>Pays dans le tableau: <?=$nb_item?></h3> <hr>
+    <p>Exemple avec valeurs 100 par pages</p>
+    <code>echo paginationModel($nb_item,$pgactu,100);</code><hr>
+    <p>
+        <?php
+        $debut_tab = ($pgactu-1)*100; // page 1 =>0, 2 =>100, 3 =>200
+        $fin_tab = 100;// 100
+        for($i=$debut_tab;$i<($debut_tab+$fin_tab);$i++){
+            // si $i est plus grand ou égal au nombre de pays dans le tableau, on arrête la boucle
+            if($i>=$nb_item) break;
+            echo $countries[$i]." | ";
+        }
+        ?>
+    </p>
+<?php
 echo paginationModel($nb_item,$pgactu,100);
 echo "<hr>";
 echo paginationModel($nb_item,$pgactu,300);

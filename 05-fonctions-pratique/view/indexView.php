@@ -43,7 +43,9 @@
                 <h1>Tous nos articles</h1>
                 <p class="lead">Nombre d'articles: <?=$nbTotalArticles?></p>
                 <?php
-                echo $pagination = paginationModel($nbTotalArticles,$pgactu,NUMBER_ARTICLE_PER_PAGE);
+                // affichage de la pagination
+                echo $pagination;
+                // tant que nous avons des articles
                 foreach($recupPagination as $item):
                 ?>
                 <h3><?=$item["titre"]?></h3>
@@ -54,9 +56,9 @@
                 endforeach;
                     ?>
                 <?php
+                echo $pagination;
                 endif;
 
-                echo $pagination;
 
                 ?>
             </div>

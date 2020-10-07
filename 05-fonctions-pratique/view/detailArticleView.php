@@ -42,7 +42,7 @@
                 else:
                 ?>
                 <h1>Notre article : <?=$recup['titre']?></h1>
-
+                    <p class="lead"><a href="./">Retournez à l'accueil</a></p>
                     <p><?=nl2br($recup["texte"])?></p>
                 <h5>Par <?=$recup["thename"]?> <?=functionDateModel($recup["thedate"])?></h5>
                 <hr>

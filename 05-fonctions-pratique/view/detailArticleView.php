@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Nos articles</title>
+    <title>Notre article : </title>
     <link rel="stylesheet" href="https://bootswatch.com/4/superhero/bootstrap.css" media="screen">
     <link rel="stylesheet" href="https://bootswatch.com/_assets/css/custom.min.css">
 </head>
@@ -40,8 +40,8 @@
                 <?php
                 else:
                 ?>
-                <h1>Tous nos articles</h1>
-                <p class="lead">Nombre d'articles: <?=$nbTotalArticles?></p>
+                <h1>Notre article : </h1>
+
                 <?php
                 // affichage de la pagination
                 echo $pagination;

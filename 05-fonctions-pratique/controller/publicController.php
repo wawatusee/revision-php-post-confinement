@@ -6,6 +6,26 @@ require_once "model/cutTheTextModel.php";
 // Pagination
 require_once "model/paginationModel.php";
 
+
+// si on est sur le détail d'un article
+if(isset($_GET["detailArticle"])){
+    // conversion en int
+    $idArticles = (int) $_GET["detailArticle"];
+    // si la convertion échoue redirection sur l'accueil
+    if(!$idArticles) {
+        header("Location: ./");
+        exit();
+    }
+    // appel de la fonction du modèle articlesModel.php
+
+
+    // view
+    require_once "view/detailArticleView.php";
+    exit();
+
+}
+
+
 // Mise en place de la pagination
 
 // existence de la variable get "pg" | toujours 1 par défaut
@@ -22,7 +42,7 @@ $nbTotalArticles = countAllArticles($db)["nb"];
 // Calcul pour avoir la première partie du LIMIT *, 10 dans la requête stockée dans articlesModel.php nommée articlesLoadResumePagination()
 $debut_tab = ($pgactu-1)*NUMBER_ARTICLE_PER_PAGE;
 
-// requ^te avec le LIMIT appliqué
+// requête avec le LIMIT appliqué
 $recupPagination = articlesLoadResumePagination($db,$debut_tab,NUMBER_ARTICLE_PER_PAGE);
 
 // pas d'articles

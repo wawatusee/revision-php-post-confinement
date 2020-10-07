@@ -43,6 +43,8 @@ FROM articles";
 
 // Load all articles with author but with 300 caracters from "texte" with pagination LIMIT
 function articlesLoadResumePagination($cdb,$begin,$nbperpage){
+    $begin = (int) $begin;
+    $nbperpage = (int) $nbperpage;
     $req = "SELECT a.idarticles, a.titre, LEFT(a.texte,300) AS texte, a.thedate, u.idusers, u.thename 
 FROM articles a 
 	INNER JOIN users u 
@@ -59,3 +61,19 @@ LIMIT $begin, $nbperpage;";
     return false;
 }
 
+// LOAD full article with ID
+function articleLoadFull($connect,$id){
+    $id = (int) $id;
+    $req = "SELECT * FROM articles a 
+	INNER JOIN users u 
+		ON a.users_idusers = u.idusers
+    WHERE a.idarticles=$id";
+    $recup = mysqli_query($connect,$req);
+    // si on a 1 résultat
+    if(mysqli_num_rows($recup)){
+        // on utilise le fetch all car il peut y avoir plus d'un résultat
+        return mysqli_fetch_assoc($recup);
+    }
+    // no result
+    return false;
+}

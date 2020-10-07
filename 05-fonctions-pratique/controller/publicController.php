@@ -17,7 +17,12 @@ if(isset($_GET["detailArticle"])){
         exit();
     }
     // appel de la fonction du modèle articlesModel.php
+    $recup = articleLoadFull($db,$idArticles);
 
+    // pas d'article, la page n'existe pas
+    if(!$recup){
+        $erreur = "Cet article n'existe plus";
+    }
 
     // view
     require_once "view/detailArticleView.php";

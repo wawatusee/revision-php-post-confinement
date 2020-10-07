@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Nos articles</title>
+    <title>Notre article : <?= (isset($erreur))?$erreur:$recup['titre']  ?></title>
     <link rel="stylesheet" href="https://bootswatch.com/4/superhero/bootstrap.css" media="screen">
     <link rel="stylesheet" href="https://bootswatch.com/_assets/css/custom.min.css">
 </head>
@@ -36,29 +36,20 @@
                 ?>
 
                 <h1><?=$erreur?></h1>
+                    <p class="lead"><a href="./">Retournez à l'accueil</a></p>
 
                 <?php
                 else:
                 ?>
-                <h1>Tous nos articles</h1>
-                <p class="lead">Nombre d'articles: <?=$nbTotalArticles?></p>
-                <?php
-                // affichage de la pagination
-                echo $pagination;
-                // tant que nous avons des articles
-                foreach($recupPagination as $item):
-                ?>
-                <h3><?=$item["titre"]?></h3>
-                    <p><?=cutTheTextModel($item["texte"])?> ... <a href="?detailArticle=<?=$item["idarticles"]?>">Lire la suite</a></p>
-                <h5>Par <?=$item["thename"]?> <?=functionDateModel($item["thedate"])?></h5>
-                <hr>
-                <?php
-                endforeach;
-                    ?>
-                <?php
-                echo $pagination;
-                endif;
+                <h1>Notre article : <?=$recup['titre']?></h1>
 
+                    <p><?=nl2br($recup["texte"])?></p>
+                <h5>Par <?=$recup["thename"]?> <?=functionDateModel($recup["thedate"])?></h5>
+                <hr>
+
+                <?php
+
+                endif;
 
                 ?>
             </div>

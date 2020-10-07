@@ -1,5 +1,16 @@
 <?php
-
+/*
+ * Utilisation :
+ * @return String
+ * @return error Empty'String
+ * @params paginationModel(
+ *      INT $nb_tot_item, // total's number of item
+ *      INT $current_page, // current page (?pg=3)
+ *      [INT]$nb_per_page=10, // numbers of item per page
+ *      [STRING]$URL_VAR="", // other get's variables before pagination
+ *      [STRING]$name_get_pagination="pg" // name of GET's variable for pagination
+ * ): string
+ */
 function paginationModel($nb_tot_item,$current_page,$nb_per_page=10,$URL_VAR="",$name_get_pagination="pg"){
 
     // création de la variable de sortie

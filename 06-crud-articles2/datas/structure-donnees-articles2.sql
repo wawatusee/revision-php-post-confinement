@@ -5,30 +5,49 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema articles
+-- Schema articles2
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema articles
+-- Schema articles2
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `articles` DEFAULT CHARACTER SET utf8 ;
-USE `articles` ;
+CREATE SCHEMA IF NOT EXISTS `articles2` DEFAULT CHARACTER SET utf8 ;
+USE `articles2` ;
 
 -- -----------------------------------------------------
--- Table `articles`.`users`
+-- Table `articles2`.`droit`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `articles`.`users` (
-  `idusers` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `thename` VARCHAR(45) NULL,
-  PRIMARY KEY (`idusers`),
-  UNIQUE INDEX `thename_UNIQUE` (`thename` ASC))
+CREATE TABLE IF NOT EXISTS `articles2`.`droit` (
+  `iddroit` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `droit_name` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`iddroit`),
+  UNIQUE INDEX `droit_name_UNIQUE` (`droit_name` ASC))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `articles`.`articles`
+-- Table `articles2`.`users`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `articles`.`articles` (
+CREATE TABLE IF NOT EXISTS `articles2`.`users` (
+  `idusers` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `thename` VARCHAR(45) NULL,
+  `thepwd` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NOT NULL COMMENT 'Le binaire permet au mot de passe d\'être sensible à la casse (minuscule, majuscule)',
+  `droit_iddroit` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`idusers`),
+  UNIQUE INDEX `thename_UNIQUE` (`thename` ASC),
+  INDEX `fk_users_droit1_idx` (`droit_iddroit` ASC),
+  CONSTRAINT `fk_users_droit1`
+    FOREIGN KEY (`droit_iddroit`)
+    REFERENCES `articles2`.`droit` (`iddroit`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `articles2`.`articles`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `articles2`.`articles` (
   `idarticles` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `titre` VARCHAR(150) NOT NULL,
   `texte` TEXT NOT NULL,
@@ -39,10 +58,11 @@ CREATE TABLE IF NOT EXISTS `articles`.`articles` (
   INDEX `fk_articles_users_idx` (`users_idusers` ASC),
   CONSTRAINT `fk_articles_users`
     FOREIGN KEY (`users_idusers`)
-    REFERENCES `articles`.`users` (`idusers`)
+    REFERENCES `articles2`.`users` (`idusers`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
@@ -69,15 +89,18 @@ SET time_zone = "+00:00";
 -- Base de données :  `articles`
 --
 
+INSERT INTO `droit` (`iddroit`, `droit_name`) VALUES (1, 'Administrateur'), (2, 'Rédacteur');
+
+
 --
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`idusers`, `thename`) VALUES
-(2, 'Christiane'),
-(4, 'Joe'),
-(3, 'Karima'),
-(1, 'Patrick');
+INSERT INTO `users` (`idusers`, `thename`,`thepwd`,`droit_iddroit`) VALUES
+(2, 'Christiane','Christiane',1),
+(4, 'Joe','Joe',2),
+(3, 'Karima','Karima',2),
+(1, 'Patrick','Patrick',2);
 
 
 --

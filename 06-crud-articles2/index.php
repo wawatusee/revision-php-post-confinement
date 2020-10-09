@@ -1,6 +1,10 @@
 <?php
 // front controller
 
+// session for all
+session_start();
+
+
 // dependencies
 require_once "config.php";
 require_once "model/connectDB.php";
@@ -16,7 +20,21 @@ if(!$db){
     die();
 }
 
-// var_dump($db);
+if(isset($_SESSION['identifiant'])&&$_SESSION['identifiant']==session_id()){
 
-// loading du contrôleur public
+    // si on est admin
+    if($_SESSION['iddroit']==1){
+        require_once "controller/adminController.php";
+        exit;
+    }
+    // si on est rédact.eur.rice
+    if($_SESSION['iddroit']==2){
+        require_once "controller/redacController.php";
+        exit;
+    }
+
+
+}
+
+// loading du contrôleur public si aucune condition ne sont vraies avant
 require_once "controller/publicController.php";

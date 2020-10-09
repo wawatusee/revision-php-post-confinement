@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Notre article : <?= (isset($erreur))?$erreur:$recup['titre']  ?></title>
+    <title>Connexion</title>
     <link rel="stylesheet" href="https://bootswatch.com/4/superhero/bootstrap.css" media="screen">
     <link rel="stylesheet" href="https://bootswatch.com/_assets/css/custom.min.css">
 </head>
@@ -35,23 +35,29 @@
                 if(isset($erreur)):
                 ?>
 
-                <h1><?=$erreur?></h1>
+                <h1>Connexion</h1>
+                <h2> <?=$erreur?></h2>
                     <p class="lead"><a href="./">Retournez à l'accueil</a></p>
 
                 <?php
-                else:
+                endif;
                 ?>
-                <h1>Notre article : <?=$recup['titre']?></h1>
-                    <p class="lead"><a href="./">Retournez à l'accueil</a></p>
-                    <p><?=nl2br($recup["texte"])?></p>
-                <h5>Par <?=$recup["thename"]?> <?=functionDateModel($recup["thedate"])?></h5>
+
                 <hr>
 
-                <?php
+                    <form action="" name="connection" method="post">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Votre login :</label>
+                            <input name="thename" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entrez votre login" required>
 
-                endif;
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Mot de passe</label>
+                            <input name="thepwd" type="password" class="form-control" id="exampleInputPassword1" placeholder="Entrez votre mot de passe" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                    </form>
 
-                ?>
             </div>
 
         </div>

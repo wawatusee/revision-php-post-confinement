@@ -1,6 +1,7 @@
 <?php
 // Dependencies
 require_once "model/articlesModel.php";
+require_once "model/usersModel.php";
 require_once "model/functionDateModel.php";
 require_once "model/cutTheTextModel.php";
 // Pagination
@@ -9,6 +10,17 @@ require_once "model/paginationModel.php";
 // si on essaye de se connecter
 if(isset($_GET['p'])&&$_GET['p']=="connect"){
 
+    // si le formulaire est envoyé
+    if(isset($_POST['thename'],$_POST['thepwd'])){
+        // traitement des données
+        $thename = htmlspecialchars(strip_tags(trim($_POST['thename'])),ENT_QUOTES);
+        $thepwd = htmlspecialchars(strip_tags(trim($_POST['thepwd'])),ENT_QUOTES);
+
+
+
+    }
+
+    //var_dump($_POST);
     // view
     require_once "view/connectView.php";
     exit();

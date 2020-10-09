@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Notre article : <?= (isset($erreur))?$erreur:$recup['titre']  ?></title>
+    <title>Connexion</title>
     <link rel="stylesheet" href="https://bootswatch.com/4/superhero/bootstrap.css" media="screen">
     <link rel="stylesheet" href="https://bootswatch.com/_assets/css/custom.min.css">
 </head>
@@ -35,16 +35,14 @@
                 if(isset($erreur)):
                 ?>
 
-                <h1><?=$erreur?></h1>
+                <h1>Connexion <?=$erreur?></h1>
                     <p class="lead"><a href="./">Retournez à l'accueil</a></p>
 
                 <?php
                 else:
                 ?>
-                <h1>Notre article : <?=$recup['titre']?></h1>
+                <h1>Connexion</h1>
                     <p class="lead"><a href="./">Retournez à l'accueil</a></p>
-                    <p><?=nl2br($recup["texte"])?></p>
-                <h5>Par <?=$recup["thename"]?> <?=functionDateModel($recup["thedate"])?></h5>
                 <hr>
 
                 <?php

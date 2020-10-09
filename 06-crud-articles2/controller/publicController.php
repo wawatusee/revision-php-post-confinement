@@ -6,6 +6,13 @@ require_once "model/cutTheTextModel.php";
 // Pagination
 require_once "model/paginationModel.php";
 
+// si on essaye de se connecter
+if(isset($_GET['p'])&&$_GET['p']=="connect"){
+
+    // view
+    require_once "view/connectView.php";
+    exit();
+}
 
 // si on est sur le détail d'un article
 if(isset($_GET["detailArticle"])){

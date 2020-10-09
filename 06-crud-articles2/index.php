@@ -1,6 +1,10 @@
 <?php
 // front controller
 
+// session for all
+session_start();
+
+
 // dependencies
 require_once "config.php";
 require_once "model/connectDB.php";

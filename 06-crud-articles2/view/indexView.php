@@ -17,7 +17,7 @@
             <ul class="navbar-nav">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="?p=help">Help</a>
+                    <a class="nav-link" href="?p=connect">Connexion</a>
                 </li>
 
             </ul>

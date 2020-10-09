@@ -21,6 +21,16 @@ if(isset($_GET['p'])&&$_GET['p']=="connect"){
         // connexion réussie
         if($connect){
 
+            // création de la session
+            //var_dump($connect);
+            $_SESSION = $connect; // on mets les variables récupérées de type tableau dans le tableau de session
+            $_SESSION['identifiant']=session_id();
+            //var_dump($_SESSION);
+
+            // redirection
+            header("Location: ./");
+            exit();
+
         }else{
             $erreur = "Login ou mot de passe incorrecte";
         }

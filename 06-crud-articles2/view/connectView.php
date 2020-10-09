@@ -35,14 +35,14 @@
                 if(isset($erreur)):
                 ?>
 
-                <h1>Connexion <?=$erreur?></h1>
+                <h1>Connexion</h1>
+                <h2> <?=$erreur?></h2>
                     <p class="lead"><a href="./">Retournez à l'accueil</a></p>
 
                 <?php
-                else:
+                endif;
                 ?>
-                <h1>Connexion</h1>
-                    <p class="lead"><a href="./">Retournez à l'accueil</a></p>
+
                 <hr>
 
                     <form action="" name="connection" method="post">
@@ -58,11 +58,6 @@
                         <button type="submit" class="btn btn-primary">Envoyer</button>
                     </form>
 
-                <?php
-
-                endif;
-
-                ?>
             </div>
 
         </div>

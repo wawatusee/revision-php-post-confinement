@@ -54,8 +54,6 @@
                 <hr>
                 <?php
                 endforeach;
-                    ?>
-                <?php
                 echo $pagination;
                 endif;
 

@@ -38,11 +38,12 @@ function countAllArticles($c){
     $req = "SELECT COUNT(idarticles) AS nb
 FROM articles";
     $recup = mysqli_query($c,$req);
-    return mysqli_fetch_assoc($recup);
+    $out = mysqli_fetch_assoc($recup);
+    return $out["nb"];
 }
 
 // Load all articles with author but with 300 caracters from "texte" with pagination LIMIT
-function articlesLoadResumePagination($cdb,$begin,$nbperpage){
+function articlesLoadResumePagination($cdb,$begin,$nbperpage=10){
     $begin = (int) $begin;
     $nbperpage = (int) $nbperpage;
     $req = "SELECT a.idarticles, a.titre, LEFT(a.texte,300) AS texte, a.thedate, u.idusers, u.thename 

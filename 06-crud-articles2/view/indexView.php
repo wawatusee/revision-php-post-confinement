@@ -59,7 +59,6 @@
                 echo $pagination;
                 endif;
 
-
                 ?>
             </div>
 

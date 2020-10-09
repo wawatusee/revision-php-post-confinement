@@ -9,7 +9,7 @@ require_once "model/paginationModel.php";
 
 // si on est sur le détail d'un article
 if(isset($_GET["detailArticle"])){
-    // conversion en int
+    // conversion en int, vaut 0 si la conversion échoue
     $idArticles = (int) $_GET["detailArticle"];
     // si la convertion échoue redirection sur l'accueil
     if(!$idArticles) {
@@ -30,6 +30,7 @@ if(isset($_GET["detailArticle"])){
 
 }
 
+// Page d'accueil
 
 // Mise en place de la pagination
 
@@ -41,8 +42,8 @@ if(isset($_GET['pg'])){
 }else{
     $pgactu = 1;
 }
-// calcul pour la requête - nombre d'articles totaux, sans erreurs SQL ce sera toujours un int, de 0 à ..., on peut récupérer la valeur nb en traitant cette fonction comme un tableau (ne fonctionne que si le résultat du de la fonction est un tableau)
-$nbTotalArticles = countAllArticles($db)["nb"];
+// calcul pour la requête - nombre d'articles totaux, sans erreurs SQL ce sera toujours un int, de 0 à ...
+$nbTotalArticles = countAllArticles($db);
 
 // Calcul pour avoir la première partie du LIMIT *, 10 dans la requête stockée dans articlesModel.php nommée articlesLoadResumePagination()
 $debut_tab = ($pgactu-1)*NUMBER_ARTICLE_PER_PAGE;

@@ -89,7 +89,7 @@ SET time_zone = "+00:00";
 -- Base de données :  `articles`
 --
 
-INSERT INTO `droit` (`iddroit`, `droit_name`) VALUES (1, 'Administrateur'), (2, 'Rédacteur');
+INSERT INTO `droit` (`iddroit`, `droit_name`) VALUES (1, 'Administrat.eur.rice'), (2, 'Rédact.eur.rice');
 
 
 --

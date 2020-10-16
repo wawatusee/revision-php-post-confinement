@@ -1,4 +1,4 @@
 # controller
-Ici nous appelerons les modèles pour récupérer, traiter les données
+Ici nous appellerons les modèles pour récupérer, traiter les données
 
-Et nous appelerons les vues
+Et nous appellerons les vues pour l'affichage des pages
